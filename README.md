@@ -1,5 +1,4 @@
-# finalwork
-#final work in the Getting and Cleaning Data Course
+#Final work in the Getting and Cleaning Data Course
 
 # Download data
 fileUrl <-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -31,6 +30,6 @@ trainSubject <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/trai
 trainActivities <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/train/y_train.txt")
 train <- cbind(trainSubject, trainActivities, train)
 
-# merge datasets and add labels
+# merge datasets
 allData <- rbind(test, train)
 write.table(allData, "tidy.txt", row.names = FALSE, quote = FALSE)
