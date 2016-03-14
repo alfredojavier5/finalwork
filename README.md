@@ -1,4 +1,3 @@
-# finalwork
 #final work in the Getting and Cleaning Data Course
 
 # Download data
