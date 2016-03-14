@@ -1,0 +1,3 @@
+Features> In the features it was taken the mean and standar desviation needed for the x_data
+Variables> All data from x,y and subject has to be summarized and Generalized into x, y subjet; test and train
+Transformation> Activity labels were transformed into activity and subjects to subject.
