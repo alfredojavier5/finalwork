@@ -1,4 +1,5 @@
-#Final work in the Getting and Cleaning Data Course
+# finalwork
+#final work in the Getting and Cleaning Data Course
 
 # Download data
 fileUrl <-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -19,18 +20,17 @@ featuresWanted.names = gsub('-std', 'Std', featuresWanted.names)
 featuresWanted.names <- gsub('[-()]', '', featuresWanted.names)
 
 # test data
-test_subject <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/test/subject_test.txt")
-test_x <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/test/X_test.txt")
-test_y <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/test/y_test.txt")
-test <- cbind(test_subject, test_x, test_y)
+test <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/test/X_test.txt") [featuresWanted]
+testSubject <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/test/subject_test.txt")
+testActivities <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/test/y_test.txt")
+test <- cbind(testSubject, testActivities, test)
 
-#   train data
-train_subject <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/train/subject_train.txt")
-train_x <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/train/X_train.txt")
-train_y <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/train/y_train.txt")
-train <- cbind(train_subject, train_x, train_y)
+# train data
+train <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/train/X_train.txt") [featuresWanted]
+trainSubject <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/train/subject_train.txt")
+trainActivities <- read.table("/Users/alfredoacosta/Final_test/UCI HAR Dataset/train/y_train.txt")
+train <- cbind(trainSubject, trainActivities, train)
 
 # merge datasets and add labels
 allData <- rbind(test, train)
-
 write.table(allData, "tidy.txt", row.names = FALSE, quote = FALSE)
